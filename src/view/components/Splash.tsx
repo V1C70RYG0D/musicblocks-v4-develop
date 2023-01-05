@@ -1,5 +1,7 @@
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import {App} from './index';
 
 // Define the Container constant inside the Splash component
 const Container = styled.div`
@@ -37,6 +39,15 @@ const Progress = styled.div`
 
 interface Props {
   progress: number;
+}
+
+export function unmountSplashAndRenderApp() {
+  const rootElement = document.getElementById('root');
+  if (rootElement) {
+    //ReactDOM.unmountComponentAtNode(rootElement);
+    ReactDOM.render(<App />, document.getElementById('root'));
+  }
+  
 }
 
 const Splash: React.FC<Props> = ({ progress }) => {
